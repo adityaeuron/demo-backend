@@ -1,0 +1,13 @@
+{
+  "name": "demo-backend",
+  "version": "1.0.0",
+  "description": "Demo backend for Git KT session",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --coverage"
+  },
+  "keywords": ["nodejs", "express", "api"],
+  "license": "MIT"
+}
