@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const calculatorRoutes = require('./routes/calculator');
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Calculator routes
@@ -13,9 +15,9 @@ app.use('/api/calculator', calculatorRoutes);
 app.get('/', (req, res) => {
     res.json({
         message: 'Demo Backend API',
-        version: '1.0.0',
+        version: '1.1.0',
         endpoints: {
-            calculator: '/api/calculator/{add,subtract,multiply,divide}'
+            calculator: '/api/calculator/{add,subtract,multiply,divide,factorial,sqrt,power}'
         }
     });
 });
