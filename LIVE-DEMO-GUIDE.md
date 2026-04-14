@@ -215,13 +215,15 @@ git pull origin main
 ### Show the conflict scenario:
 
 ```bash
-# Main has cors-support merged
+# First merge cors-support into main
 git checkout main
+git merge feature/cors-support --no-edit
+git push origin main
 git log --oneline    # Shows CORS commit
 
-# Rate-limiting branch was made BEFORE cors was merged
+# Now rate-limiting branch was made BEFORE cors was merged
 git checkout feature/rate-limiting
-cat src/index.js     # No cors, has rate limiting
+cat src/index.js     # Has rate limiting but NO cors
 ```
 
 ### Try to merge (will conflict):
