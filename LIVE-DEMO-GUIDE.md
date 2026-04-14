@@ -57,7 +57,7 @@ git commit -m "test: remove temp"
 
 ### Command to run:
 ```bash
-git checkout -b feature/calculator-api
+git checkout feature/calculator-api
 ```
 
 ### Show them the code:
