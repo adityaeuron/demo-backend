@@ -97,11 +97,10 @@ git push origin feature/calculator-api
 ### MERGE Demo
 
 ```bash
-# Go to main
 git checkout main
 
 # Merge calculator (fast-forward)
-git merge feature/calculator-api
+git merge feature/calculator-api --no-edit
 git push origin main
 
 # Check history
@@ -111,36 +110,21 @@ git log --oneline --graph
 ### REBASE Demo
 
 ```bash
-# Create scenario: main got updated while you worked
-git checkout -b feature/scientific-ops
+# Checkout the scientific-ops branch (already exists)
+git checkout feature/scientific-ops
 
 # Show what's on this branch
 cat src/controllers/scientificController.js
 cat src/routes/calculator.js
 
-# Simulate teammate updating main
+# Update it with latest main
+git rebase main
+git log --oneline --graph    # Shows linear history!
+
+# Now merge it to main
 git checkout main
 git merge feature/scientific-ops --no-edit
 git push origin main
-
-# Now show what happens when you rebase
-git checkout feature/scientific-ops
-git rebase main
-git log --oneline --graph    # Linear history!
-```
-
-### Side-by-side comparison:
-
-```bash
-# Show merge creates merge commit
-git checkout main
-git merge feature/calculator-api
-git log --oneline --graph    # Has merge commit
-
-# Show rebase is linear
-git checkout feature/scientific-ops
-git rebase main
-git log --oneline --graph    # Straight line
 ```
 
 **Key takeaway:** 
